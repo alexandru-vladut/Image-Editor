@@ -1,0 +1,63 @@
+# Copyright Vladut Alexandru-Nicolae 312CAa 2021-2022
+
+In functia main(), prin intermediul instructiunii switch ... case, analizam
+primul cuvant din comanda data ca input pentru a sti ce actiune trebuie executata.
+Astfel, distingem urmatoarele cazuri:
+
+	CAZUL 'LOAD':
+		- apelam functia my_load din fisierul load.c, unde gasim si functiile
+		pentru alocarile dinamice ale matricelor si eliberarea acestora:
+			- se realizeaza lucrul cu fisierul incarcat, citind si memorand
+			valorile regasite in el;
+		- daca incarcarea se realizeaza cu succes, se realizeaza selectarea
+		completa a imaginii si se afiseaza mesajul aferent;
+		- altfel, se afiseaza mesajul de eroare.
+
+	CAZUL 'SELECT':
+		- daca avem o imagine incarcata, apelam functia selecting, care
+		selecteaza o zona din imagine pe baza coordonatelor introduse;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+
+	CAZUL 'SELECT_ALL':
+		- daca avem o imagine incarcata, apelam functia selecting_all, care
+		selecteaza intreaga imagine;
+			- daca selectia se realizeaza cu succes, se afiseaza mesajul
+			aferent;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+
+	CAZUL 'ROTATE':
+		- daca avem o imagine incarcata, apelam functia rotate_any, care
+		roteste ultima selectie in functie de unghiul dat ca parametru;
+			- daca rotatia se realizeaza cu succes, se afiseaza mesajul
+			aferent;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+
+	CAZUL 'CROP':
+		- daca avem o imagine incarcata, apelam functia crop_any, care
+		taie imaginea, pastrand ultima selectie;
+			- daca taierea se realizeaza cu succes, se afiseaza mesajul
+			aferent;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+
+	CAZUL 'APPLY':
+		- daca este incarcata o imagine de tip grayscale, se afiseaza mesajul
+		aferent;
+		- daca este incarcata o imagine de tip RGB, se apeleaza functia
+		apply_any, care aplica efectul dat ca parametru pe ultima selectie;
+		- daca nu este incarcata o imagine, se afiseaza mesajul de eroare.
+
+	CAZUL 'SAVE':
+		- daca avem o imagine incarcata, apelam functia save_any, care
+		salveaza imaginea actual incarcata, cu eventualele modificari facute;
+			- daca se realizeaza cu succes salvarea, se afiseaza mesajul
+			aferent;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+		
+	CAZUL 'EXIT':
+		- daca avem incarcata o imagine, eliberam memoria ocupata de aceasta;
+		- daca nu avem o imagine incarcata, se afiseaza mesajul de eroare.
+		
+	CAZUL 'NO' si 'DEFAULT':
+		- se ajunge pe aceste cazuri daca comanda este invalida, verificare
+		pe care o facem cu ajutorul functiei change_command.
+
